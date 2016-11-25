@@ -21,16 +21,15 @@ def collect(repository, twin):
     commits = repository.commits()
     processed = 1
     for (commit, parent) in commits:
-        print "Processing commit %s out of %s" % (processed, len(commits))
+        print "::: Processing commit %s out of %s :::" % (processed, len(commits))
         repository.checkout(commit)
         twin.checkout(parent)  # one version before in order to collect refactorings
-        #print "Collecting metrics"
-        #Understand(repository).collect()
-        #print "Collecting smells and agglomerations"
-        #Organic(repository).collect()
+        print "Collecting metrics"
+        Understand(repository).collect()
+        print "Collecting smells and agglomerations"
+        Organic(repository).collect()
         print "Collecting refactorings"
         RefactoringMiner(repository, twin).collect()
-        # return
         processed += 1
 
 
