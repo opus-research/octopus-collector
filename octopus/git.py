@@ -11,7 +11,6 @@ class GitRepository:
         self.settings = Settings()
         self.current_commit = "HEAD"
         self.create_output_folder()
-        self.checkout("master")
 
     def twin(self):
         return GitRepository(self.url,"_twin")

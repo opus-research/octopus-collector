@@ -9,8 +9,10 @@ from octopus.understand import Understand
 
 def prepare(repository):
     repository.clone()
+    repository.checkout("master")
     repository.extract_history()
     twin = repository.twin()
+    twin.checkout("master")
     repository.cp(twin.contents_folder())
     return repository, twin
 
