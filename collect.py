@@ -12,8 +12,8 @@ def prepare(repository):
     repository.checkout("master")
     repository.extract_history()
     twin = repository.twin()
-    twin.checkout("master")
     repository.cp(twin.contents_folder())
+    twin.checkout("master")
     return repository, twin
 
 
