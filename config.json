@@ -1,0 +1,6 @@
+{
+  "repositories_folder":"/Users/diego/repos",
+  "output_folder":"/Users/diego/octopus-outputs",
+  "equinox": "/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar",
+  "ref_miner": "/Users/diego/ref-detector-bin/RefDetector-0.0.1-SNAPSHOT.jar"
+}
