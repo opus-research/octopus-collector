@@ -5,10 +5,6 @@ import os
 class Understand:
     def __init__(self, repository):
         self.repository = repository
-        self.create_udb()
-        self.add_files()
-        self.analyze()
-        self.settings()
 
     def settings(self):
         cmd = "und settings -MetricOutputFile \"%s\" %s" % (self.metrics_file(), self.udb_file())
@@ -52,6 +48,10 @@ class Understand:
         if os.path.exists(self.metrics_file()):
             print self.metrics_file(), "already exists. Skipping..."
             return
+        self.create_udb()
+        self.add_files()
+        self.analyze()
+        self.settings()
         cmd = "und metrics -db %s" % self.udb_file()
         run_cmd(cmd)
         cmd = "rm -f %s" % self.udb_file()
