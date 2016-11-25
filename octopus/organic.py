@@ -22,6 +22,6 @@ class Organic:
         equinox = self.settings.equinox()
         organic = "organic.Organic"
         main = "org.eclipse.core.launcher.Main"
-        cmd = 'java -jar -XX:MaxPermSize=12g -Xms40m -Xmx12g "%s" %s -application %s -sf "%s" -af "%s" -src "%s"'
+        cmd = 'java -jar -Xms1g -Xmx20g "%s" %s -application %s -sf "%s" -af "%s" -src "%s"'
         cmd = cmd % (equinox, main, organic, self.smell_file(), self.agglomeration_file(), self.repository.contents_folder())
         run_cmd(cmd)
