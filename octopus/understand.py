@@ -48,6 +48,7 @@ class Understand:
         run_cmd(cmd)
 
     def collect(self):
+        print "Collecting", self.metrics_file()
         if os.path.exists(self.metrics_file()):
             print self.metrics_file(), "already exists. Skipping..."
             return
