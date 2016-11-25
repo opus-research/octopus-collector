@@ -67,17 +67,17 @@ class GitRepository:
         run_cmd(cmd)
 
     def stash(self):
-        cmd = "git -C %s stash" % self.contents_folder()
+        cmd = "git -C %s stash --quiet" % self.contents_folder()
         run_cmd(cmd)
 
     def reset(self):
-        cmd = "git -C %s reset HEAD --hard" % self.contents_folder()
+        cmd = "git -C %s reset HEAD --hard --quiet" % self.contents_folder()
         run_cmd(cmd)
 
     def checkout(self, commit):
         self.stash()
         self.reset()
-        cmd = "git -C %s checkout %s" % (self.contents_folder(), commit)
+        cmd = "git -C %s checkout %s --quiet" % (self.contents_folder(), commit)
         run_cmd(cmd)
         self.current_commit = commit
 
