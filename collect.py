@@ -1,6 +1,7 @@
 import sys
 import os
 
+from octopus.eh_facts_extractor import EHFactsExtractor
 from octopus.organic import Organic
 from octopus.refactoring import RefactoringMiner
 from octopus.repositories import RepoFile
@@ -30,6 +31,8 @@ def collect(repository, twin):
         Organic(repository).collect()
         print "Collecting refactorings"
         RefactoringMiner(repository, twin).collect()
+        print "Collecting EH facts"
+        EHFactsExtractor(repository).collect()
         processed += 1
 
 

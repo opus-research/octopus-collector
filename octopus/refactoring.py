@@ -17,7 +17,7 @@ class RefactoringMiner:
         self.settings = Settings()
 
     def ref_file(self):
-        params = (self.repo.current_commit, self.old.current_commit)
+        params = (self.old.current_commit, self.repo.current_commit)
         return self.repo.out_folder() + "/%s_to_%s_refactorings.json" % params
 
     def collect(self):
