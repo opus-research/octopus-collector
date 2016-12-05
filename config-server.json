@@ -1,6 +1,7 @@
 {
   "repositories_folder":"/home/infra/repos_octopus",
   "output_folder":"/home/infra/octopus-output",
+  "results_git_repo_prefix": "results_repo",
   "equinox": "/home/infra/apps/eclipse_mars/plugins/org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar",
   "ref_miner": "/home/infra/ref-detector-bin/RefDetector-0.0.1-SNAPSHOT.jar"
 }
