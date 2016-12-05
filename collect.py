@@ -13,16 +13,22 @@ def prepare(repository):
     repository.checkout("master")
     repository.extract_history()
     twin = repository.twin()
-    repository.cp(twin.contents_folder())
+    repository.cp(twin.path())
     twin.checkout("master")
     return repository, twin
 
 
 def collect(repository, twin):
     commits = repository.commits()
+    finished = repository.results_git.finished_commits()
     processed = 1
-    for (commit, parent) in commits:
+    for (commit, parent, message) in commits:
         print "::: Processing commit %s out of %s :::" % (processed, len(commits))
+        processed += 1
+        #  checks if this commit was already processed
+        if commit in finished:
+            print "Commit %s already processed. Skipping..." % commit
+            continue
         repository.checkout(commit)
         twin.checkout(parent)  # one version before in order to collect refactorings
         print "Collecting metrics"
@@ -33,7 +39,8 @@ def collect(repository, twin):
         RefactoringMiner(repository, twin).collect()
         print "Collecting EH facts"
         EHFactsExtractor(repository).collect()
-        processed += 1
+        repository.results_git.create_state_file()
+        repository.results_git.commit(repository.current_commit)
 
 
 def start():
@@ -45,6 +52,5 @@ def start():
     for repository in repo_file.repositories:
         repository, twin = prepare(repository)
         collect(repository, twin)
-
 
 start()

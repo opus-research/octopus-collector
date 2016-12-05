@@ -21,12 +21,12 @@ class Understand:
         run_cmd(cmd)
 
     def udb_file(self):
-        commit = self.repository.current_commit
-        return self.repository.out_folder() + "/" + commit + ".udb"
+        out = self.repository.results_git.path()
+        return out + "/project.udb"
 
     def metrics_file(self):
-        commit = self.repository.current_commit
-        return self.repository.out_folder() + "/" + commit + "_metrics.csv"
+        out = self.repository.results_git.path()
+        return out + "/metrics.csv"
 
     def create_udb(self):
         cmd = "und create -db %s -languages java" % self.udb_file()
@@ -34,7 +34,7 @@ class Understand:
 
     def add_files(self):
         files = self.repository.out_folder() + "/files"
-        cmd = "find %s -name \"*.java\"  > %s" % (self.repository.contents_folder(), files)
+        cmd = "find %s -name \"*.java\"  > %s" % (self.repository.path(), files)
         run_cmd(cmd)
         cmd = "und -quiet -db %s add @%s" % (self.udb_file(), files)
         run_cmd(cmd)
@@ -45,9 +45,6 @@ class Understand:
 
     def collect(self):
         print "Collecting", self.metrics_file()
-        if os.path.exists(self.metrics_file()):
-            print self.metrics_file(), "already exists. Skipping..."
-            return
         self.create_udb()
         self.add_files()
         self.analyze()

@@ -1,4 +1,4 @@
-from octopus.git import GitRepository
+from octopus.git import ProjectGit
 
 
 class RepoFile:
@@ -13,4 +13,4 @@ class RepoFile:
         with open(self.file_name) as repos_file:
             rows = repos_file.readlines()
             selected = [rows[i].strip() for i in range(self.start, self.end + 1)]
-            return [GitRepository(i) for i in selected]
+            return [ProjectGit(i) for i in selected]

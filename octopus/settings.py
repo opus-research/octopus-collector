@@ -27,3 +27,6 @@ class Settings:
     def ref_miner(self):
         return self.config["ref_miner"]
 
+    def results_repo_name(self):
+        return self.config["results_git_repo_prefix"]
+
