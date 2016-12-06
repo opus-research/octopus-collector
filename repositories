@@ -1,1 +1,4 @@
-https://github.com/diegocedrim/organic
+git_url;source_folder;main_branch
+https://github.com/diegocedrim/organic;src;master
+https://github.com/apache/tomcat;java;trunk
+https://github.com/apache/derby;java;trunk

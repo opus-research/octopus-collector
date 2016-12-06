@@ -23,10 +23,12 @@ class RefactoringMiner:
     def collect(self):
         params = {}
         params["jar"] = self.settings.ref_miner()
-        params["old"] = self.old.path()
-        params["new"] = self.repo.path()
+        params["old"] = self.old.src_folder()
+        params["new"] = self.repo.src_folder()
+        params["old_repo"] = self.old.path()
+        params["new_repo"] = self.repo.path()
         params["ref_file"] = self.ref_file() + ".ugly"
-        cmd = 'java -jar %(jar)s "%(old)s" "%(new)s" > %(ref_file)s' % params
+        cmd = 'java -jar %(jar)s "%(old)s" "%(new)s" "%(old_repo)s" "%(new_repo)s" > %(ref_file)s' % params
         run_cmd(cmd)
 
         # prettify the output file (useful for versioning - multiple lines)

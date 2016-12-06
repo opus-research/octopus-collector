@@ -34,7 +34,7 @@ class Understand:
 
     def add_files(self):
         files = self.repository.out_folder() + "/files"
-        cmd = "find %s -name \"*.java\"  > %s" % (self.repository.path(), files)
+        cmd = "find %s -name \"*.java\"  > %s" % (self.repository.src_folder(), files)
         run_cmd(cmd)
         cmd = "und -quiet -db %s add @%s" % (self.udb_file(), files)
         run_cmd(cmd)

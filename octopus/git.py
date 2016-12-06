@@ -9,22 +9,15 @@ from abc import abstractmethod
 class Git(object):
     __metaclass__ = ABCMeta
 
-    def __init__(self):
+    def __init__(self, main_branch):
         self.current_commit = "HEAD"
+        self.main_branch = main_branch
 
     @abstractmethod
     def path(self): pass
 
     @abstractmethod
     def history_file(self): pass
-
-    def clone(self):
-        if os.path.exists(self.path()):
-            print self.url, "already cloned"
-            return
-        params = {"url": self.url, "dest_folder": self.path()}
-        cmd = "git clone %(url)s %(dest_folder)s" % params
-        run_cmd(cmd)
 
     def stash(self):
         cmd = "git -C %s stash --quiet" % self.path()
@@ -42,9 +35,9 @@ class Git(object):
         self.current_commit = commit
 
     def extract_history(self):
-        cmd = "git -C %s rev-list --format=\"%%H;%%P;%%ae;%%an;%%ai;%%s\" --no-merges --branches=master HEAD "
+        cmd = "git -C %s rev-list --format=\"%%H;%%P;%%ae;%%an;%%ai;%%s\" --no-merges --branches=%s HEAD "
         cmd += "| grep -v \"commit \" > %s"
-        cmd = cmd % (self.path(), self.history_file())
+        cmd = cmd % (self.path(), self.main_branch, self.history_file())
         run_cmd(cmd)
 
     def is_git(self):
@@ -70,6 +63,7 @@ class Git(object):
 class ResultsGit(Git):
 
     def __init__(self, project_git):
+        Git.__init__(self, "master")
         self.project_git = project_git
         self.settings = Settings()
         if self.is_git():
@@ -123,17 +117,27 @@ class ResultsGit(Git):
         """
         return self.project_git.out_folder() + "/processed_commits.txt"
 
+
 class ProjectGit(Git):
 
-    def __init__(self, url, name_sufix=""):
+    def __init__(self, url, main_branch="master", source_folder="", name_suffix=""):
+        """
+        :param url: git repository url. Used to clone the repository
+        :param main_branch: main branch where the commits will be collected (usually, main)
+        :param source_folder: instead of using all java files, you can inform a root of source folder.
+        In this way, you can ignore all test files
+        :param name_sufix:
+        """
+        Git.__init__(self, main_branch)
         self.url = url
-        self.name_suffix = name_sufix
+        self.name_suffix = name_suffix
+        self.source_folder = source_folder
         self.settings = Settings()
         self.create_output_folder()
         self.results_git = ResultsGit(self)
 
     def twin(self):
-        return ProjectGit(self.url, "_twin")
+        return ProjectGit(self.url, self.main_branch, self.source_folder, "_twin")
 
     def create_output_folder(self):
         out = self.out_folder()
@@ -155,12 +159,23 @@ class ProjectGit(Git):
         cmd = "cp -r %s %s" % (self.path(), destination)
         run_cmd(cmd)
 
+    def clone(self):
+        if os.path.exists(self.path()):
+            print self.url, "already cloned"
+            return
+        params = {"url": self.url, "dest_folder": self.path()}
+        cmd = "git clone %(url)s %(dest_folder)s" % params
+        run_cmd(cmd)
+
     def path(self):
         """
         Folder where all the repository files are stored
         :return:
         """
         return self.settings.repositories_folder() + "/" + self.name() + self.name_suffix
+
+    def src_folder(self):
+        return self.path() + "/" + self.source_folder
 
     def out_folder(self):
         """

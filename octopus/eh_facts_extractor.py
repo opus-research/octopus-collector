@@ -18,5 +18,5 @@ class EHFactsExtractor:
         ehfe = "EHFactsExtractor.EHFactsExtractor"
         main = "org.eclipse.core.launcher.Main"
         cmd = 'java -jar -Xms1g -Xmx6g "%s" %s -application %s "%s" "%s"'
-        cmd = cmd % (equinox, main, ehfe, self.repository.path(), self.facts_file())
+        cmd = cmd % (equinox, main, ehfe, self.repository.src_folder(), self.facts_file())
         run_cmd(cmd)

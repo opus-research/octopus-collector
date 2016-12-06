@@ -11,11 +11,11 @@ from octopus.understand import Understand
 
 def prepare(repository):
     repository.clone()
-    repository.checkout("master")
+    repository.checkout(repository.main_branch)
     repository.extract_history()
     twin = repository.twin()
     repository.cp(twin.path())
-    twin.checkout("master")
+    twin.checkout(twin.main_branch)
     return repository, twin
 
 
@@ -53,5 +53,5 @@ def start():
     for repository in repo_file.repositories:
         repository, twin = prepare(repository)
         collect(repository, twin)
-        
+
 start()
