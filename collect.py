@@ -19,19 +19,37 @@ def prepare(repository):
     return repository, twin
 
 
+def should_skip(repository, processed):
+    if not repository.has_commit_selection():
+        return False
+    if processed < repository.starting_commit or processed > repository.ending_commit:
+        return True
+    return False
+
+
 def collect(repository, twin):
     commits = repository.commits()
     finished = repository.results_git.finished_commits()
-    processed = 1
+    processed = 0
     for (commit, parent, message) in commits:
-        print "::: Processing commit %s out of %s :::" % (processed, len(commits))
         processed += 1
+        print "::: Processing commit %s out of %s :::" % (processed, len(commits))
+        if should_skip(repository, processed):
+            print "Skipping due to selection made on the repositories file"
+            continue
+
         #  checks if this commit was already processed
         if commit in finished:
             print "Commit %s already processed. Skipping..." % commit
             continue
+
         repository.checkout(commit)
         twin.checkout(parent)  # one version before in order to collect refactorings
+
+        if not repository.exists_src_folder():
+            print "Source folder %s not found. Skipping" % repository.src_folder()
+            continue
+
         print "Collecting metrics"
         Understand(repository).collect()
         print "Collecting smells and agglomerations"

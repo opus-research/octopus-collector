@@ -120,7 +120,8 @@ class ResultsGit(Git):
 
 class ProjectGit(Git):
 
-    def __init__(self, url, main_branch="master", source_folder="", name_suffix=""):
+    def __init__(self, url, main_branch="master", source_folder="", name_suffix="",
+                 starting_commit=None, ending_commit=None):
         """
         :param url: git repository url. Used to clone the repository
         :param main_branch: main branch where the commits will be collected (usually, main)
@@ -135,6 +136,11 @@ class ProjectGit(Git):
         self.settings = Settings()
         self.create_output_folder()
         self.results_git = ResultsGit(self)
+        self.starting_commit = starting_commit
+        self.ending_commit = ending_commit
+
+    def has_commit_selection(self):
+        return self.starting_commit is not None and self.ending_commit is not None
 
     def twin(self):
         return ProjectGit(self.url, self.main_branch, self.source_folder, "_twin")
@@ -176,6 +182,9 @@ class ProjectGit(Git):
 
     def src_folder(self):
         return self.path() + "/" + self.source_folder
+
+    def exists_src_folder(self):
+        return os.path.exists(self.src_folder())
 
     def out_folder(self):
         """

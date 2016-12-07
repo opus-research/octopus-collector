@@ -1,4 +1,4 @@
-git_url;source_folder;main_branch
-https://github.com/diegocedrim/organic;src;master
-https://github.com/apache/tomcat;java;trunk
-https://github.com/apache/derby;java;trunk
+git_url;source_folder;main_branch;starting_commit;ending_commit
+https://github.com/diegocedrim/organic;src;master;2;5
+https://github.com/apache/tomcat;java;trunk;20000;21000
+https://github.com/apache/derby;java;trunk;20000;21000
