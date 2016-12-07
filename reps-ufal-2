@@ -1,0 +1,3 @@
+git_url;source_folder;main_branch;starting_commit;ending_commit
+https://github.com/apache/tomcat;java;trunk;9560;13760
+https://github.com/apache/derby;java;trunk;4146;6001
