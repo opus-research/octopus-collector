@@ -1,7 +1,7 @@
 {
-  "repositories_folder":"/home/easy/octopus-package/octopus-repos",
+  "repositories_folder":"/Users/diego/repos",
   "results_git_repo_prefix": "results_repo",
-  "output_folder":"/home/easy/octopus-package/octopus-outputs",
-  "equinox": "/home/easy/octopus-package/eclipse_mars/plugins/org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar",
-  "ref_miner": "/home/easy/octopus-package/ref-detector-bin/RefDetector-0.0.1-SNAPSHOT.jar"
+  "output_folder":"/Users/diego/octopus-outputs",
+  "equinox": "/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar",
+  "ref_miner": "/Users/diego/ref-detector-bin/RefDetector-0.0.1-SNAPSHOT.jar"
 }

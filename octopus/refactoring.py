@@ -29,6 +29,7 @@ class RefactoringMiner:
         params["new_repo"] = self.repo.path()
         params["ref_file"] = self.ref_file() + ".ugly"
         cmd = 'java -jar %(jar)s "%(old)s" "%(new)s" "%(old_repo)s" "%(new_repo)s" > %(ref_file)s' % params
+        print cmd
         run_cmd(cmd)
 
         # prettify the output file (useful for versioning - multiple lines)

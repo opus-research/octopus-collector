@@ -50,16 +50,16 @@ def collect(repository, twin):
             print "Source folder %s not found. Skipping" % repository.src_folder()
             continue
 
-        print "Collecting metrics"
-        Understand(repository).collect()
-        print "Collecting smells and agglomerations"
-        Organic(repository).collect()
+        # print "Collecting metrics"
+        # Understand(repository).collect()
+        # print "Collecting smells and agglomerations"
+        # Organic(repository).collect()
         print "Collecting refactorings"
         RefactoringMiner(repository, twin).collect()
-        print "Collecting EH facts"
-        EHFactsExtractor(repository).collect()
-        repository.results_git.create_state_file()
-        repository.results_git.commit(repository.current_commit)
+        # print "Collecting EH facts"
+        # EHFactsExtractor(repository).collect()
+        # repository.results_git.create_state_file()
+        # repository.results_git.commit(repository.current_commit)
 
 
 def start():
