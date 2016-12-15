@@ -58,8 +58,8 @@ def collect(repository, twin):
         RefactoringMiner(repository, twin).collect()
         # print "Collecting EH facts"
         # EHFactsExtractor(repository).collect()
-        # repository.results_git.create_state_file()
-        # repository.results_git.commit(repository.current_commit)
+        repository.results_git.create_state_file()
+        repository.results_git.commit(repository.current_commit)
 
 
 def start():
