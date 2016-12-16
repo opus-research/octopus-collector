@@ -28,7 +28,7 @@ class RefactoringMiner:
         params["old_repo"] = self.old.path()
         params["new_repo"] = self.repo.path()
         params["ref_file"] = self.ref_file() + ".ugly"
-        cmd = 'java -jar %(jar)s "%(old)s" "%(new)s" "%(old_repo)s" "%(new_repo)s" > %(ref_file)s' % params
+        cmd = 'java -jar -Xms1g -Xmx10g %(jar)s "%(old)s" "%(new)s" "%(old_repo)s" "%(new_repo)s" > %(ref_file)s' % params
         print cmd
         run_cmd(cmd)
 
