@@ -89,6 +89,32 @@ class ResultsGit(Git):
             finished.add(commit[-1].strip())
         return finished
 
+    def remote_folder(self):
+        """
+        returns the remote folder's name. Ex: results_apache_derby/ufal5_results_repo
+        :return:
+        """
+        template = "results_%s/%s_results_repo"
+        project_name = self.project_git.name()
+        machine = self.settings.git_remote()["local_name"]
+        return template % (project_name, machine)
+
+    def setup_remote(self):
+        out = self.path()
+        remote = self.settings.git_remote()
+
+        # creates the remote repository
+        create_cmd = remote["create_remote_cmd"] % self.remote_folder()
+        run_cmd(create_cmd)
+
+        add_remote = remote["add_remote_cmd"] % (out, self.remote_folder())
+        run_cmd(add_remote)
+
+    def push(self):
+        out = self.path()
+        cmd = "git -C %s push origin master" % out
+        run_cmd(cmd)
+
     def create(self):
         out = self.path()
         if not os.path.isdir(out):
@@ -97,6 +123,7 @@ class ResultsGit(Git):
         run_cmd(cmd)
         run_cmd('echo results of %s > %s/README.txt' % (self.project_git.name(), self.path()))
         self.commit("initial commit")
+        self.setup_remote()
 
     def create_state_file(self):
         run_cmd('echo commit: %s > %s/state.txt' % (self.project_git.current_commit, self.path()))

@@ -1,3 +1,11 @@
 git_url;source_folder;main_branch;starting_commit;ending_commit
-https://github.com/apache/tomcat;java;trunk;8161;9561
-https://github.com/apache/derby;java;trunk;3530;4145
+https://github.com/c2nes/ircbot;/;master
+https://github.com/moobid/JARA;/;master
+https://github.com/OpenConext/OpenConext-cruncher;/;master
+https://github.com/MarvinBellmann/WhatsUp;/;master
+https://github.com/elasticsearch/elasticsearch-transport-thrift;/;master
+https://github.com/localstorm/market-monitor;/;master
+https://github.com/furio/alfred-mpi;/;master
+https://github.com/alvyxaz/mayhem-and-hell;/;master
+https://github.com/jhalterman/lyra;/;master
+https://github.com/iweinzierl/passsafe;/;master

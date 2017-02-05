@@ -1,3 +1,8 @@
 git_url;source_folder;main_branch;starting_commit;ending_commit
-https://github.com/apache/tomcat;java;trunk;9560;13760
-https://github.com/apache/derby;java;trunk;4146;6001
+https://github.com/jnape/Dynamic-Collections;/;master
+https://github.com/TUBAME/migration-tool;/;master
+https://github.com/gertvv/drugis-common;/;master
+https://github.com/bublag/confetti;/;master
+https://github.com/altran/Whydah-UserAdminService;/;master
+https://github.com/pusher/pusher-java-client;/;master
+https://github.com/rwe17/MediaMagpie;/;master

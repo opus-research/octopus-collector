@@ -1,2 +1,3 @@
 git_url;source_folder;main_branch;starting_commit;ending_commit
-https://github.com/diegocedrim/organic;src;develop
+https://github.com/tupilabs/tap4j;/;master
+https://github.com/Sen-Word-Builder/Word-Builder;src;master

@@ -18,6 +18,9 @@ class Settings:
     def repositories_folder(self):
         return self.config["repositories_folder"]
 
+    def git_remote(self):
+        return self.config["git_remote"]
+
     def output_folder(self):
         return self.config["output_folder"]
 

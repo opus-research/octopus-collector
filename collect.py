@@ -1,6 +1,5 @@
 import sys
 import os
-import argparse
 
 from octopus.eh_facts_extractor import EHFactsExtractor
 from octopus.organic import Organic
@@ -50,16 +49,19 @@ def collect(repository, twin):
             print "Source folder %s not found. Skipping" % repository.src_folder()
             continue
 
-        # print "Collecting metrics"
-        # Understand(repository).collect()
-        # print "Collecting smells and agglomerations"
-        # Organic(repository).collect()
+        print "Collecting metrics"
+        Understand(repository).collect()
+        print "Collecting smells and agglomerations"
+        Organic(repository).collect()
         print "Collecting refactorings"
         RefactoringMiner(repository, twin).collect()
-        # print "Collecting EH facts"
-        # EHFactsExtractor(repository).collect()
+        print "Collecting EH facts"
+        EHFactsExtractor(repository).collect()
+
+        # save the results into results repository and push them to the remote server
         repository.results_git.create_state_file()
         repository.results_git.commit(repository.current_commit)
+        repository.results_git.push()
 
 
 def start():
