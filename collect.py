@@ -66,8 +66,11 @@ def collect(repository, twin):
 
 def start():
     repositories_file = os.path.abspath(sys.argv[1])
-    starting_line = int(sys.argv[2])
-    ending_line = int(sys.argv[3])
+    starting_line = None
+    ending_line = None
+    if len(sys.argv) >= 4:
+        starting_line = int(sys.argv[2])
+        ending_line = int(sys.argv[3])
 
     repo_file = RepoFile(repositories_file, starting_line, ending_line)
     for repository in repo_file.repositories:

@@ -21,7 +21,7 @@ class RepoFile:
             row_count = 1
             selected = []
             for row in reader:
-                if self.start <= row_count <= self.end:
+                if (self.start is None and self.end is None) or (self.start <= row_count <= self.end):
                     if row["git_url"].strip()[0] == "#":
                         continue
                     starting_commit = get_int_value(row["starting_commit"])
