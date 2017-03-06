@@ -1,8 +1,5 @@
 git_url;source_folder;main_branch;starting_commit;ending_commit
-https://github.com/jnape/Dynamic-Collections;/;master
-https://github.com/TUBAME/migration-tool;/;master
-https://github.com/gertvv/drugis-common;/;master
-https://github.com/bublag/confetti;/;master
-https://github.com/altran/Whydah-UserAdminService;/;master
-https://github.com/pusher/pusher-java-client;/;master
-https://github.com/rwe17/MediaMagpie;/;master
+https://github.com/Netflix/Hystrix;/;master
+https://github.com/spring-projects/spring-boot;/;master
+https://github.com/junit-team/junit4;/;master
+https://github.com/facebook/fresco;/;master

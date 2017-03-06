@@ -1,11 +1,6 @@
 git_url;source_folder;main_branch;starting_commit;ending_commit
-https://github.com/c2nes/ircbot;/;master
-https://github.com/moobid/JARA;/;master
-https://github.com/OpenConext/OpenConext-cruncher;/;master
-https://github.com/MarvinBellmann/WhatsUp;/;master
-https://github.com/elasticsearch/elasticsearch-transport-thrift;/;master
-https://github.com/localstorm/market-monitor;/;master
-https://github.com/furio/alfred-mpi;/;master
-https://github.com/alvyxaz/mayhem-and-hell;/;master
-https://github.com/jhalterman/lyra;/;master
-https://github.com/iweinzierl/passsafe;/;master
+https://github.com/realm/realm-java;/;master
+https://github.com/prestodb/presto;/;master
+https://github.com/alibaba/dubbo;/;master
+https://github.com/google/j2objc;/;master
+https://github.com/apache/ant;/;master

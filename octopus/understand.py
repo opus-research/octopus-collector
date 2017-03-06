@@ -1,5 +1,4 @@
 from octopus.bash import run_cmd
-import os
 
 
 class Understand:

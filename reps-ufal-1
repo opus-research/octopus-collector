@@ -1,4 +1,7 @@
 git_url;source_folder;main_branch;starting_commit;ending_commit
-https://github.com/robertdj20/Containing;/;master
-https://github.com/hal/ballroom;/;master
-https://github.com/mdelapenya/ghprb-plugin;/;master
+https://github.com/square/okhttp ;/;master
+https://github.com/google/iosched;/;master
+https://github.com/PhilJay/MPAndroidChart;/;master
+https://github.com/square/dagger;/;master
+https://github.com/square/leakcanary;/;master
+https://github.com/square/retrofit;/;master

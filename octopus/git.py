@@ -145,6 +145,7 @@ class ResultsGit(Git):
         return self.project_git.out_folder() + "/processed_commits.txt"
 
 
+
 class ProjectGit(Git):
 
     def __init__(self, url, main_branch="master", source_folder="", name_suffix="",
