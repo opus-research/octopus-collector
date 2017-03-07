@@ -1,7 +1,2 @@
 git_url;source_folder;main_branch;starting_commit;ending_commit
-https://github.com/square/okhttp;/;master
-https://github.com/google/iosched;/;master
-https://github.com/PhilJay/MPAndroidChart;/;master
-https://github.com/square/dagger;/;master
-https://github.com/square/leakcanary;/;master
-https://github.com/square/retrofit;/;master
+https://github.com/junit-team/junit4;/;master
