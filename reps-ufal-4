@@ -1,5 +1,2 @@
 git_url;source_folder;main_branch;starting_commit;ending_commit
-https://github.com/AndroidBootstrap/android-bootstrap;/;master
-https://github.com/Netflix/SimianArmy;/;master
-https://github.com/facebook/facebook-android-sdk;/;master
-https://github.com/orhanobut/logger;/;master
+https://github.com/facebook/fresco;/;master

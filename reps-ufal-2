@@ -2,4 +2,4 @@ git_url;source_folder;main_branch;starting_commit;ending_commit
 https://github.com/Netflix/Hystrix;/;master
 https://github.com/spring-projects/spring-boot;/;master
 https://github.com/junit-team/junit4;/;master
-https://github.com/facebook/fresco;/;master
+
