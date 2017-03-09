@@ -1,6 +1,3 @@
 git_url;source_folder;main_branch;starting_commit;ending_commit
 https://github.com/realm/realm-java;/;master
-https://github.com/prestodb/presto;/;master
-https://github.com/alibaba/dubbo;/;master
-https://github.com/google/j2objc;/;master
 https://github.com/apache/ant;/;master
