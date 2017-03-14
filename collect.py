@@ -26,6 +26,11 @@ def should_skip(repository, processed):
     return False
 
 
+def log_error(message):
+    with open("errors.log", "a") as log_file:
+        log_file.write(message + "\n")
+
+
 def collect(repository, twin):
     commits = repository.commits()
     finished = repository.results_git.finished_commits()
@@ -49,19 +54,23 @@ def collect(repository, twin):
             print "Source folder %s not found. Skipping" % repository.src_folder()
             continue
 
-        print "Collecting metrics"
-        Understand(repository).collect()
-        print "Collecting smells and agglomerations"
-        Organic(repository).collect()
-        print "Collecting refactorings"
-        RefactoringMiner(repository, twin).collect()
-        print "Collecting EH facts"
-        EHFactsExtractor(repository).collect()
+        try:
+            print "Collecting metrics"
+            Understand(repository).collect()
+            print "Collecting smells and agglomerations"
+            Organic(repository).collect()
+            print "Collecting refactorings"
+            RefactoringMiner(repository, twin).collect()
+            print "Collecting EH facts"
+            EHFactsExtractor(repository).collect()
 
-        # save the results into results repository and push them to the remote server
-        repository.results_git.create_state_file()
-        repository.results_git.commit(repository.current_commit)
-        repository.results_git.push()
+            # save the results into results repository and push them to the remote server
+            repository.results_git.create_state_file()
+            repository.results_git.commit(repository.current_commit)
+            repository.results_git.push()
+        except:
+            print "Unexpected error:", sys.exc_info()[0]
+            log_error(commit + ";" + repository.url)
 
 
 def start():
