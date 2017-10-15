@@ -30,7 +30,7 @@ class Git(object):
     def checkout(self, commit):
         self.stash()
         self.reset()
-        cmd = "git -C %s checkout %s --quiet" % (self.path(), commit)
+        cmd = "git -C %s checkout -f %s --quiet" % (self.path(), commit)
         run_cmd(cmd)
         self.current_commit = commit
 
