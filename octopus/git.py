@@ -128,6 +128,11 @@ class ResultsGit(Git):
     def create_state_file(self):
         run_cmd('echo commit: %s > %s/state.txt' % (self.project_git.current_commit, self.path()))
 
+    def create_meta_file(self, filename, content):
+        out = "%s/%s" % (self.path(), filename)
+        with open(out, "w") as f:
+            f.write(content)
+
     def commit(self, message):
         params = {"dir": self.path(), "message": message}
         cmd = "git -C %(dir)s add --all" % params
@@ -143,7 +148,6 @@ class ResultsGit(Git):
         :return:
         """
         return self.project_git.out_folder() + "/processed_commits.txt"
-
 
 
 class ProjectGit(Git):
