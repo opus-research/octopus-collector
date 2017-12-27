@@ -1,2 +1,5 @@
 git_url;source_folder;main_branch;starting_commit;ending_commit
-https://github.com/opus-research/couchbase-java-client;/;master
+https://github.com/opus-research/spymemcached;/;master
+https://github.com/opus-research/org.eclipse.linuxtools;/;master
+https://github.com/opus-research/egit;/;master
+https://github.com/opus-research/couchbase-jvm-core;/;master
