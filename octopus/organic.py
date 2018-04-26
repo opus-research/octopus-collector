@@ -23,4 +23,7 @@ class Organic:
         main = "org.eclipse.core.launcher.Main"
         cmd = 'java -jar -Xms1g -Xmx20g "%s" %s -application %s -sf "%s" -af "%s" -src "%s"'
         cmd = cmd % (equinox, main, organic, self.smell_file(), self.agglomeration_file(), self.repository.src_folder())
+        # cmd = 'java -jar -Xms1g -Xmx20g "%s" %s -application %s -sf "%s" -src "%s"'
+        # cmd = cmd % (equinox, main, organic, self.smell_file(), self.repository.src_folder())
+        print cmd
         run_cmd(cmd)

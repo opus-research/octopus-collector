@@ -1,5 +1,9 @@
 git_url;source_folder;main_branch;starting_commit;ending_commit
-https://github.com/opus-research/spymemcached;/;master
-https://github.com/opus-research/org.eclipse.linuxtools;/;master
-https://github.com/opus-research/egit;/;master
-https://github.com/opus-research/couchbase-jvm-core;/;master
+https://github.com/ucl-puc-rio/org.eclipse.linuxtools;/;master;1;1000
+https://github.com/ucl-puc-rio/couchbase-java-client;/;master
+https://github.com/ucl-puc-rio/couchbase-jvm-core;/;master
+https://github.com/ucl-puc-rio/eclipse.platform.ui;/;master
+https://github.com/ucl-puc-rio/egit;/;master
+https://github.com/ucl-puc-rio/jgit;/;master
+https://github.com/ucl-puc-rio/spymemcached;/;master
+
