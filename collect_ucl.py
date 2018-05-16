@@ -70,8 +70,8 @@ def collect(repository, twin):
             continue
 
         try:
-            print "Collecting metrics"
-            Understand(repository).collect()
+            # print "Collecting metrics"
+            # Understand(repository).collect()
             print "Collecting smells and agglomerations"
             Organic(repository).collect()
             print "Collecting refactorings"

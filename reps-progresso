@@ -1,0 +1,9 @@
+git_url;source_folder;main_branch;starting_commit;ending_commit
+https://github.com/ucl-puc-rio/org.eclipse.linuxtools;/;master;1;1000 (rodando no dengue)
+https://github.com/ucl-puc-rio/couchbase-java-client;/;master (rodando no mac)
+https://github.com/ucl-puc-rio/couchbase-jvm-core;/;master (rodando no dengue)
+https://github.com/ucl-puc-rio/eclipse.platform.ui;/;master (rodando no dengue)
+https://github.com/ucl-puc-rio/egit;/;master (rodando no mac)
+https://github.com/ucl-puc-rio/jgit;/;master (rodando no mac)
+https://github.com/ucl-puc-rio/spymemcached;/;master
+
